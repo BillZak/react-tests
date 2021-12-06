@@ -1,4 +1,37 @@
+.posts {
+  max-width: 600px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  margin-bottom: 40px;
+}
+
 .post_img {
   width: 100%;
   object-fit: contain;
+}
+
+.post_header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.post_avatar {
+  background-color: blue;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.avatar_img {
+  object-fit: contain;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.post_text {
+  font-size: 15px;
+  padding: 20px;
 }
