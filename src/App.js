@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 //import components
-import { db } from "./Firebase";
 import Header from "./Components/Header/Header";
 import Posts from "./Components/Posts/Posts";
+import db from "./Firebase";
 
 function App() {
   //useState serves as a temporary storage space for variables and components
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([
+    {
+      username: "champ_gobain",
+      imageUrl: "https://picsum.photos/200/300",
+      caption: "wake up",
+    },
+  ]);
 
   //useEffect runs a piece of code based on a specific condition
   useEffect(() => {
