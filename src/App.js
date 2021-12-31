@@ -15,7 +15,7 @@ function App() {
     },
   ]);
 
-  //useEffect runs a piece of code based on a specific condition
+  // useEffect runs a piece of code based on a specific condition
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
       setPosts(snapshot.docs.map((doc) => doc.data()));
