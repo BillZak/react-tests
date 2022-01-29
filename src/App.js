@@ -3,17 +3,11 @@ import "./App.css";
 //import components
 import Header from "./Components/Header/Header";
 import Posts from "./Components/Posts/Posts";
-import db from "./Firebase";
+import db from "./firebase";
 
 function App() {
   //useState serves as a temporary storage space for variables and components
-  const [posts, setPosts] = useState([
-    {
-      username: "champ_gobain",
-      imageUrl: "https://picsum.photos/200/300",
-      caption: "wake up",
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
 
   // useEffect runs a piece of code based on a specific condition
   useEffect(() => {
