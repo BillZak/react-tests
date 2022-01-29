@@ -1,33 +1,16 @@
-// import firebase from "firebase";
-
-// const firebaseApp = firebase.initializeApp({
-//   apiKey: "AIzaSyDzOpwXff_bcXW5k316_notjQl8VtctN9s",
-//   authDomain: "instagram-clone-react-ae91d.firebaseapp.com",
-//   projectId: "instagram-clone-react-ae91d",
-//   storageBucket: "instagram-clone-react-ae91d.appspot.com",
-//   messagingSenderId: "832539972056",
-//   appId: "1:832539972056:web:72a8517756777b25e262ad",
-//   measurementId: "${config.measurementId}",
-// });
-
-// const db = firebaseApp.firestore();
-// const auth = firebase.auth();
-// const storage = firebase.storage();
-
-// export { auth, storage };
-// export default db;
-
-import firebase from "firebase";
+import firebase from "firebase/compat/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDzOpwXff_bcXW5k316_notjQl8VtctN9s",
-  authDomain: "instagram-clone-react-ae91d.firebaseapp.com",
-  projectId: "instagram-clone-react-ae91d",
-  storageBucket: "instagram-clone-react-ae91d.appspot.com",
-  messagingSenderId: "832539972056",
-  appId: "1:832539972056:web:72a8517756777b25e262ad",
-  measurementId: "${config.measurementId}",
+  apiKey: "AIzaSyBlEgKPERF96sE3f2glKLs5WjzwXx0_eRg",
+  authDomain: "instagram-react-3b14d.firebaseapp.com",
+  projectId: "instagram-react-3b14d",
+  storageBucket: "instagram-react-3b14d.appspot.com",
+  messagingSenderId: "280768458979",
+  appId: "1:280768458979:web:7f56532971f130086c15d6",
+  measurementId: "G-JMX00X7GY9",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
