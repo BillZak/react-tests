@@ -1,34 +1,40 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-//import components
-import Header from "./Components/Header/Header";
-import Posts from "./Components/Posts/Posts";
-import db from "./firebase";
+import React, { Component } from "react";
 
-function App() {
-  //useState serves as a temporary storage space for variables and components
-  const [posts, setPosts] = useState([]);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      loading: false,
+    };
+  }
 
-  // useEffect runs a piece of code based on a specific condition
-  useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
+  componentDidMount() {
+    fetch("https://randomuser.me/api/")
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({
+          items: response.results,
+          loading: true,
+        });
+      });
+  }
 
-  return (
-    <div className="App">
-      <Header />
+  render() {
+    var { items, loading } = this.state;
 
-      {posts.map((post) => (
-        <Posts
-          username={post.username}
-          caption={post.caption}
-          imageUrl={post.imageUrl}
-        />
-      ))}
-    </div>
-  );
+    if (!loading) {
+      return <div>Loading ...</div>;
+    } else {
+      return (
+        <div>
+          {items.map((item) => (
+            <img src={item.picture.medium} alt={item.name.first} />
+          ))}{" "}
+        </div>
+      );
+    }
+  }
 }
 
 export default App;
