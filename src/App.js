@@ -1,40 +1,49 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import DataTable from "./DataTable";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      loading: false,
-    };
-  }
+const App = () => {
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [q, setQ] = useState("");
 
-  componentDidMount() {
-    fetch("https://randomuser.me/api/")
+  useEffect(() => {
+    fetch("https://randomuser.me/api/?results=20")
       .then((response) => response.json())
-      .then((response) => {
-        this.setState({
-          items: response.results,
-          loading: true,
-        });
-      });
+      .then((response) => setItem(response.results))
+      .then((response) => setLoading(true));
+  }, []);
+
+  function search(rows) {
+    return rows.filter(
+      (row) => row.location.country.toLowerCase().indexOf(q) > -1
+    );
   }
 
-  render() {
-    var { items, loading } = this.state;
-
-    if (!loading) {
-      return <div>Loading ...</div>;
-    } else {
-      return (
-        <div>
-          {items.map((item) => (
-            <img src={item.picture.medium} alt={item.name.first} />
-          ))}{" "}
+  if (!loading) {
+    return <div>Loading ...</div>;
+  } else {
+    return (
+      <div>
+        <div
+          style={{ marginBottom: 30, marginTop: 30 }}
+          class="input-group flex-nowrap"
+        >
+          <span class="input-group-text" id="addon-wrapping">
+            Search Here
+          </span>
+          <input
+            type="text"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            class="form-control"
+            aria-describedby="addon-wrapping"
+          />
         </div>
-      );
-    }
+
+        <DataTable item={search(item)} />
+      </div>
+    );
   }
-}
+};
 
 export default App;
