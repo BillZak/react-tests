@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "./DataTable";
+import MapContainer from "./MapContainer";
 
 const App = () => {
   const [item, setItem] = useState([]);
@@ -41,6 +42,7 @@ const App = () => {
         </div>
 
         <DataTable item={search(item)} />
+        <MapContainer item={item} />
       </div>
     );
   }
