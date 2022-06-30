@@ -42,7 +42,7 @@ const App = () => {
         </div>
 
         <DataTable item={search(item)} />
-        <MapContainer item={item} />
+        {/* <MapContainer item={item} /> */}
       </div>
     );
   }
