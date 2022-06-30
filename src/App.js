@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "./DataTable";
-import MapContainer from "./MapContainer";
 
 const App = () => {
   const [item, setItem] = useState([]);
